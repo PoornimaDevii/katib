@@ -255,3 +255,21 @@ class KatibClient(object):
           "There was a problem to get experiment {0} in namespace {1}. Exception: \
           {2} ".format(name, namespace, e))
     return result
+
+    def get_optimal_hyperparmeters(self, name=None, namespace=None):
+    """
+    Get status, currentOptimalTrial with paramaterAssignments
+    :param name: existing experiment name
+    :param namespace: defaults to current or default namespace
+    :return: dict with status, currentOptimalTrial with paramaterAssignments of an experiment
+    """    
+    if namespace is None:
+      namespace = utils.get_default_target_namespace()
+
+    katibexp = self.get_experiment(name, namespace=namespace)
+    result = {}
+    result["status"] = katibexp.get("status", {}).get("conditions", [])[-1].get("type")
+    result["currentOptimalTrial"] = katibexp.get("status", {}).get("currentOptimalTrial")
+    
+    return result  
+  

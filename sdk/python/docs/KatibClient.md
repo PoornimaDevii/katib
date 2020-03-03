@@ -23,6 +23,7 @@ KatibClient | [list_experiments](#list_experiments) | List all Experiments with 
 KatibClient | [get_experiment_status](#get_experiment_status) | Get Experiment status|
 KatibClient | [is_experiment_succeeded](#is_experiment_succeeded) | Check if Experiment status is Succeeded |
 KatibClient | [list_trials](#list_trials) | List all trials of specified Experiment with status |
+KatibClient | [get_optimal_hyperparmeters](#list_trialsget_optimal_hyperparmeters) | Get status, currentOptimalTrial with paramaterAssignmentsof an Experiment|
 
 
 
@@ -118,3 +119,17 @@ namespace | str | The experiment's namespace. Defaults to current or default nam
 
 ### Return type
 List
+
+## get_optimal_hyperparmeters
+> get_optimal_hyperparmeters(name, namespace=None)
+
+Get status, currentOptimalTrial with paramaterAssignments of an experiment
+
+### Parameters
+Name | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+name  | str | The experiment name.| Required |
+namespace | str | The experiment's namespace. Defaults to current or default namespace.| Optional |
+
+### Return type
+Dict

@@ -51,7 +51,7 @@ Class | Method | Description
 [KatibClient](docs/KatibClient.md) | [get_experiment_status](docs/KatibClient.md#get_experiment_status) | Get Experiment status|
 [KatibClient](docs/KatibClient.md) | [is_experiment_succeeded](docs/KatibClient.md#is_experiment_succeeded) | Check if Experiment status is Succeeded |
 [KatibClient](docs/KatibClient.md) | [list_trials](docs/KatibClient.md#list_trials) | List all trials of specified Experiment |
-
+[KatibClient](docs/KatibClient.md) | [get_optimal_hyperparmeters](docs/KatibClient.md#get_optimal_hyperparmeters) | Get status, currentOptimalTrial with paramaterAssignmentsof an Experiment|
 
 
 ## Documentation For Models

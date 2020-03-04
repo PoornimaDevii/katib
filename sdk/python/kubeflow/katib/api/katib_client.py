@@ -65,7 +65,7 @@ class KatibClient(object):
     """
     
     if namespace is None:
-      namespace = utils.set_katib_namespace(katib)
+      namespace = utils.set_katib_namespace(name)
     try:
       outputs = self.api_instance.create_namespaced_custom_object(
         constants.EXPERIMENT_GROUP,

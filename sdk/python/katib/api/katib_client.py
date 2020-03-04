@@ -31,18 +31,31 @@ class KatibClient(object):
     :param client_configuration: kubernetes configuration object
     :param persist_config:
     """
+    self.in_cluster=None
     if config_file or not utils.is_running_in_k8s():
-      config.load_kube_config(
-        config_file=config_file,
-        context=context,
-        client_configuration=client_configuration,
-        persist_config=persist_config)
+        config.load_kube_config(
+            config_file=config_file,
+            context=context,
+            client_configuration=client_configuration,
+            persist_config=persist_config)
+        self.in_cluster=False
     else:
-      config.load_incluster_config()
-
+        config.load_incluster_config()
+        self.in_cluster=True
+        
     self.api_instance = client.CustomObjectsApi()
 
-
+  def _is_ipython(self):
+    """Returns whether we are running in notebook."""
+    try:
+      import IPython
+      ipy = IPython.get_ipython()
+      if ipy is None:
+        return False
+    except ImportError:
+      return False
+    return True
+  
   def create_experiment(self, name, namespace=None):
     """
     Create the katib experiment
@@ -65,11 +78,15 @@ class KatibClient(object):
         "Exception when calling CustomObjectsApi->create_namespaced_custom_object:\
          %s\n" % e)
     
-    import IPython
-    html = \
-          ('Katib Experiment link <a href="/_/katib/#/katib/hp_monitor/%s/%s" target="_blank">here</a>' 
-           % (namespace, name.metadata.name))
-    IPython.display.display(IPython.display.HTML(html))      
+    if self._is_ipython(): 
+        if self.in_cluster:
+            print(self.in_cluster)
+            import IPython
+            html = \
+                  ('Katib Experiment link <a href="/_/katib/#/katib/hp_monitor/%s/%s" target="_blank">here</a>' 
+                   % (namespace, name.metadata.name))
+            IPython.display.display(IPython.display.HTML(html))      
+    self.in_cluster=None   
     return outputs
 
   def get_experiment(self, name=None, namespace=None):

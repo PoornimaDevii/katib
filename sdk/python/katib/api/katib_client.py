@@ -80,7 +80,6 @@ class KatibClient(object):
     
     if self._is_ipython(): 
         if self.in_cluster:
-            print(self.in_cluster)
             import IPython
             html = \
                   ('Katib Experiment link <a href="/_/katib/#/katib/hp_monitor/%s/%s" target="_blank">here</a>' 

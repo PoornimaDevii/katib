@@ -111,7 +111,7 @@ class KatibClient(object):
       try:
         katibexp = thread.get(constants.APISERVER_TIMEOUT)
       except multiprocessing.TimeoutError:
-        raise RuntimeError("Timeout trying to getkatib experiment.")
+        raise RuntimeError("Timeout trying to get katib experiment.")
       except client.rest.ApiException as e:
         raise RuntimeError(
           "Exception when calling CustomObjectsApi->get_namespaced_custom_object:\
@@ -140,7 +140,7 @@ class KatibClient(object):
           %s\n" % e)
       except Exception as e:
         raise RuntimeError(
-          "There was a problem to List experiment in namespace {0}. \
+          "There was a problem to get experiment in namespace {0}. \
           Exception: {1} ".format(namespace, e))
 
     return katibexp
@@ -195,7 +195,7 @@ class KatibClient(object):
           output["status"] = i.get("status", {}).get("conditions", [])[-1].get("type")
           result.append(output)             
     except multiprocessing.TimeoutError:
-      raise RuntimeError("Timeout trying to getkatib experiment.")
+      raise RuntimeError("Timeout trying to get katib experiment.")
     except client.rest.ApiException as e:
       raise RuntimeError(
         "Exception when calling CustomObjectsApi->get_namespaced_custom_object:\
@@ -210,7 +210,7 @@ class KatibClient(object):
     
     """Returns experiment status, such as Running, Failed or Succeeded.
     Args:
-      :param name: The experiment name. required
+      :param name: An experiment name. required
       :param namespace: defaults to current or default namespace.
       :return: status str
     """
@@ -225,8 +225,8 @@ class KatibClient(object):
     
     """Returns true if experiment succeeded; false otherwise.
     Args:
-      :param name: The experiment name.
-      :param namespace: defaults to current or default namespace.
+      :param name: An experiment name. required
+      :param namespace: defaults to current or default namespace. optional
       :return: status bool
     """
     experiment_status = self.get_experiment_status(name, namespace=namespace)

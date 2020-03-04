@@ -23,7 +23,7 @@ KatibClient | [list_experiments](#list_experiments) | List all Experiments with 
 KatibClient | [get_experiment_status](#get_experiment_status) | Get Experiment status|
 KatibClient | [is_experiment_succeeded](#is_experiment_succeeded) | Check if Experiment status is Succeeded |
 KatibClient | [list_trials](#list_trials) | List all trials of specified Experiment with status |
-KatibClient | [get_optimal_hyperparmeters](#get_optimal_hyperparmeters) | Get status, currentOptimalTrial with paramaterAssignmentsof an Experiment|
+KatibClient | [get_optimal_hyperparmeters](#get_optimal_hyperparmeters) | Get status, currentOptimalTrial with paramaterAssignments of an Experiment|
 
 
 

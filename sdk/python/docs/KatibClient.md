@@ -17,13 +17,13 @@ The APIs for KatibClient are as following:
 Class | Method | Description
 ------------ | -------------  | -------------
 KatibClient | [create_experiment](#create_experiment) | Create Katib Experiment|
-KatibClient | [get_experiment](#get_experiment)    | Get or watch the specified Experiment or all Experiment in the namespace |
-KatibClient | [delete_experiment](#delete_experiment) | Delete specified Experiment |
-KatibClient | [list_experiments](#list_experiments) | List all Experiments with status |
-KatibClient | [get_experiment_status](#get_experiment_status) | Get Experiment status|
-KatibClient | [is_experiment_succeeded](#is_experiment_succeeded) | Check if Experiment status is Succeeded |
-KatibClient | [list_trials](#list_trials) | List all trials of specified Experiment with status |
-KatibClient | [get_optimal_hyperparmeters](#get_optimal_hyperparmeters) | Get status, currentOptimalTrial with paramaterAssignments of an Experiment|
+KatibClient | [get_experiment](#get_experiment)    | Get or watch the specified experiment or all experiments in the namespace |
+KatibClient | [delete_experiment](#delete_experiment) | Delete specified experiment |
+KatibClient | [list_experiments](#list_experiments) | List all experiments with status |
+KatibClient | [get_experiment_status](#get_experiment_status) | Get experiment status|
+KatibClient | [is_experiment_succeeded](#is_experiment_succeeded) | Check if experiment status is Succeeded |
+KatibClient | [list_trials](#list_trials) | List all trials of specified experiment with status |
+KatibClient | [get_optimal_hyperparmeters](#get_optimal_hyperparmeters) | Get status, currentOptimalTrial with paramaterAssignments of an experiment|
 
 
 
@@ -47,8 +47,8 @@ Get experiment in the specified namespace
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-name  | str | The experiment name. If the `name` is not specified, will get all experiments in the namespace.| Optional. |
-namespace | str | The experiment's namespace. Defaults to current or default namespace.| Optional |
+name  | str | Experiment name. If the `name` is not specified, will get all experiments in the namespace.| Optional. |
+namespace | str | Experiment's namespace. Defaults to current or default namespace.| Optional |
 
 ### Return type
 object
@@ -59,8 +59,8 @@ object
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-name  | str | The experiment name.| Required |
-namespace | str | The experiment's namespace. Defaults to current or default namespace. | Optional|
+name  | str | Experiment name.| Required |
+namespace | str | Experiment's namespace. Defaults to current or default namespace. | Optional|
 
 ### Return type
 object
@@ -73,7 +73,7 @@ List all experiment with status
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-namespace | str | The experiment's namespace. Defaults to current or default namespace.| Optional |
+namespace | str | Experiment's namespace. Defaults to current or default namespace.| Optional |
 
 ### Return type
 List
@@ -86,8 +86,8 @@ Returns experiment status, such as Running, Failed or Succeeded.
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-name  | str | The experiment name. | Required |
-namespace | str | The experiment's namespace. Defaults to current or default namespace.| Optional |
+name  | str | Experiment name. | Required |
+namespace | str | Experiment's namespace. Defaults to current or default namespace.| Optional |
 
 ### Return type
 Str
@@ -95,13 +95,13 @@ Str
 ## is_experiment_succeeded
 > is_experiment_succeeded(name, namespace=None)
 
-Returns True if the experiment succeeded; false otherwise.
+Returns True if Experiment succeeded; false otherwise.
 
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-name  | str | The experiment name.| Required |
-namespace | str | The experiment's namespace. Defaults to current or default namespace.| Optional |
+name  | str | Experiment name.| Required |
+namespace | str | Experiment's namespace. Defaults to current or default namespace.| Optional |
 
 ### Return type
 Bool
@@ -114,8 +114,8 @@ List all trials of an experiment with status
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-name  | str | The experiment name.| Required |
-namespace | str | The experiment's namespace. Defaults to current or default namespace.| Optional |
+name  | str | Experiment name.| Required |
+namespace | str | Experiment's namespace. Defaults to current or default namespace.| Optional |
 
 ### Return type
 List
@@ -128,8 +128,8 @@ Get status, currentOptimalTrial with paramaterAssignments of an experiment
 ### Parameters
 Name | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-name  | str | The experiment name.| Required |
-namespace | str | The experiment's namespace. Defaults to current or default namespace.| Optional |
+name  | str | Experiment name.| Required |
+namespace | str | Experiment's namespace. Defaults to current or default namespace.| Optional |
 
 ### Return type
 Dict

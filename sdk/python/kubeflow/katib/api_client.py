@@ -23,9 +23,9 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from katib.configuration import Configuration
-import katib.models
-from katib import rest
+from kubeflow.katib.configuration import Configuration
+import kubeflow.katib.models
+from kubeflow.katib import rest
 
 
 class ApiClient(object):

@@ -1,6 +1,3 @@
-test link from cli
-add api for best hyp
-
 # coding: utf-8
 
 # flake8: noqa

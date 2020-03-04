@@ -16,8 +16,8 @@ import time
 
 from kubernetes import client, config
 
-from katib.constants import constants
-from katib.utils import utils
+from kubeflow.katib.constants import constants
+from kubeflow.katib.utils import utils
 
 
 class KatibClient(object):

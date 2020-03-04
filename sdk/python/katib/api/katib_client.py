@@ -256,7 +256,7 @@ class KatibClient(object):
           {2} ".format(name, namespace, e))
     return result
 
-    def get_optimal_hyperparmeters(self, name=None, namespace=None):
+  def get_optimal_hyperparmeters(self, name=None, namespace=None):
     """
     Get status, currentOptimalTrial with paramaterAssignments
     :param name: existing experiment name
